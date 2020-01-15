@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="iOS,生活,旅行,思考,代码,博客" />
+   
+  <meta name="description" content="iOS开发" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    iOS 选择框，自定义选择 |  李文强的博客
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-xiaoshushidaialerview" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  iOS 选择框，自定义选择
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2017/ck5f1dyd50008fu1mbvjaycrp/" class="article-date">
+  <time datetime="2017-10-24T07:11:41.000Z" itemprop="datePublished">2017-10-24</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="先上图"><a href="#先上图" class="headerlink" title="先上图"></a>先上图</h1><h2 id="附上地址-https-github-com-liwq87112-WQAlertView"><a href="#附上地址-https-github-com-liwq87112-WQAlertView" class="headerlink" title="附上地址  https://github.com/liwq87112/WQAlertView"></a>附上地址  <a href="https://github.com/liwq87112/WQAlertView" target="_blank" rel="noopener">https://github.com/liwq87112/WQAlertView</a></h2><p><img src="http://upload-images.jianshu.io/upload_images/2835602-6eca7e5a3059d6a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="B34F6273-A32A-4FCC-8040-675A5FB7FE03.png"></p>
+<p>里面的cell可以自定义·背景·颜色，按钮都可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">NSArray * arr = @[@&quot;喜欢吗&quot;,@&quot;欢迎下载&quot;,@&quot;WQAlertView&quot;];</span><br><span class="line">self.alert = [WQAlertView tableAlertWithTitle:@&quot;&quot; cancelButtonTitle:@&quot;&quot; numberOfRows:^NSInteger(NSInteger section) &#123;</span><br><span class="line">//返回多少个</span><br><span class="line">return arr.count;</span><br><span class="line">&#125; andCells:^UITableViewCell *(WQAlertView *alert, NSIndexPath *indexPath) &#123;</span><br><span class="line">//自定义cell</span><br><span class="line">static NSString *CellIdentifier = @&quot;CellIdentifier&quot;;</span><br><span class="line">UITableViewCell *cell = [anAlert.table dequeueReusableCellWithIdentifier:CellIdentifier];</span><br><span class="line">if (cell == nil)</span><br><span class="line">&#123;cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];&#125;</span><br><span class="line">cell.textLabel.text = arr[indexPath.row];</span><br><span class="line">return cell;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br><span class="line">[self.alert show];</span><br></pre></td></tr></table></figure></p>
+<p>显示和消失的时候做啦一点动画视觉效果</p>
+<p>#消失<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-(void)animateOut</span><br><span class="line">&#123;</span><br><span class="line">[UIView animateWithDuration:1.0/7.5 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(0.9, 0.9);</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">[UIView animateWithDuration:1.0/15.0 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(1.1, 1.1);</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">[UIView animateWithDuration:0.3 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(0.01, 0.01);</span><br><span class="line">self.alpha = 0.3;</span><br><span class="line">&#125; completion:^(BOOL finished)&#123;</span><br><span class="line">[self removeFromSuperview];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-(void)animateIn</span><br><span class="line">&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(0.6, 0.6);</span><br><span class="line">[UIView animateWithDuration:0.2 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(1.1, 1.1);</span><br><span class="line">&#125; completion:^(BOOL finished)&#123;</span><br><span class="line">[UIView animateWithDuration:1.0/15.0 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformMakeScale(0.9, 0.9);</span><br><span class="line">&#125; completion:^(BOOL finished)&#123;</span><br><span class="line">[UIView animateWithDuration:1.0/7.5 animations:^&#123;</span><br><span class="line">self.alertBg.transform = CGAffineTransformIdentity;</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你觉得还行·欢迎下载 demo <a href="https://github.com/liwq87112/WQAlertView" target="_blank" rel="noopener">https://github.com/liwq87112/WQAlertView</a> </p>
+
+      
+      <!-- 打赏 -->
+      
+        <div id="reward-btn">
+          打赏
+        </div>
+        
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liwq87112.github.io/2017/ck5f1dyd50008fu1mbvjaycrp/" data-id="ck5f1dyd50008fu1mbvjaycrp"
+        class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2017/ck5f1dyd8000bfu1mnofngus9/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Runtime简单使用
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2017/ck5f1dyd40007fu1mb2twldgd/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">深圳前海小树时代互联网金融服务有限公司</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        李文强
+      </li>
+      <li>
+        
+          Power by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="李文强的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/jianli/">简历</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2015/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯星巴克吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+<script src="/js/ayer.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
+</body>
+
+</html>

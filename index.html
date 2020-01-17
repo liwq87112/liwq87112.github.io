@@ -70,7 +70,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/ck5humph4000egl1m4k6sz63p/"
+  <a class="article-title" href="/2020/ck5hutglo000ki71mn9sl3you/"
     >iOS 查看打包后的证书</a
   >
 </h2>
@@ -81,7 +81,7 @@
 
     
     <div class="article-meta">
-      <a href="/2020/ck5humph4000egl1m4k6sz63p/" class="article-date">
+      <a href="/2020/ck5hutglo000ki71mn9sl3you/" class="article-date">
   <time datetime="2020-01-16T13:30:15.000Z" itemprop="datePublished">2020-01-16</time>
 </a>
       
@@ -100,28 +100,15 @@
       <p>关于打包之后无法安装，或者安装之后闪退的情况。只有可能是两种情况，一种是证书错误，另一种就是当前的设备并不在开发者对应的账号里面。</p>
 <p>我们来看一下怎么检测当前的设备是否在开发者的证书里呢，如果你有开发者账号，当然登录app即可获得。但是没有开发者账号的情况我们该怎么办呢？</p>
 <p>我们以下面的ipa包为例，必须是hoc或者dev的包</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2835602-3a2813fd67b8793c..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png" title="1521431648582925.png"></p>
-<p>ipa其实就是一个压缩文件，我们可以对齐解压。得到一个payload文件夹。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2835602-81e68bad731ce369..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png" title="1521431663954123.png"></p>
-<p>解压后，点击进入文件夹，然后显示包内容，可以看到里面的文件列表</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2835602-13d3c9ab57d6dac6..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png" title="1521431684847898.png"></p>
-<p>我们找到对应的证书embedded.mobileprovision 这个就是你的ipa包里面使用的签名证书。</p>
-<p>然后mac上开启终端。并cd到证书所在的路径</p>
-<p>并且在终端输入</p>
-<p><code>//查看dev.hoc包中的已经添加的设备号</code></p>
-<p><code>security cms -D -i embedded.mobileprovision &gt; entitlements_full.plist</code></p>
-<p>在证书对应的路径会生成一个文件</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2835602-daf931909bf7db64..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png" title="1521431729756280.png"></p>
-<p>用xcode打开这个文件</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2835602-675e4a3ed0f06891..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png" title="1521431748249408.png"></p>
-<p>这里面就是你的证书里面对应的所有的设备号。</p>
-
+      
+      <a class="article-more-link" href="/2020/ck5hutglo000ki71mn9sl3you/">阅读更多...</a>
+      
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2020/ck5humph4000egl1m4k6sz63p/" data-id="ck5humph4000egl1m4k6sz63p"
+      <a data-url="https://liwq87112.github.io/2020/ck5hutglo000ki71mn9sl3you/" data-id="ck5hutglo000ki71mn9sl3you"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
@@ -185,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2020/jianli/" data-id="ck5humpgv0004gl1mlxjrze1x"
+      <a data-url="https://liwq87112.github.io/2020/jianli/" data-id="ck5hutgkz0000i71mbc265xhs"
         class="article-share-link">分享</a>
       
     </footer>
@@ -208,7 +195,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/ck5humpgq0001gl1m8dzm0c6u/"
+  <a class="article-title" href="/2019/ck5hutgl60003i71mx8zod9di/"
     >iOS 悬浮按钮,支持自定义</a
   >
 </h2>
@@ -219,7 +206,7 @@
 
     
     <div class="article-meta">
-      <a href="/2019/ck5humpgq0001gl1m8dzm0c6u/" class="article-date">
+      <a href="/2019/ck5hutgl60003i71mx8zod9di/" class="article-date">
   <time datetime="2019-06-09T09:08:48.000Z" itemprop="datePublished">2019-06-09</time>
 </a>
       
@@ -238,14 +225,14 @@
       <p>####一句demo 显示、点击. 支持自定义</p>
 <p>1、刚刚开始做是用来给测试人员用,不需要一直打包,然后就用一个固定的UIButton来代替.<br>2、后面有一个分享有礼功能一直悬浮,离开这个页面时移除.然后才考虑写悬浮按钮<br>3、因为我们产品需求当前页面能手动点击移除,所以用UIView 来写,高度自定义</p>
       
-      <a class="article-more-link" href="/2019/ck5humpgq0001gl1m8dzm0c6u/">阅读更多...</a>
+      <a class="article-more-link" href="/2019/ck5hutgl60003i71mx8zod9di/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2019/ck5humpgq0001gl1m8dzm0c6u/" data-id="ck5humpgq0001gl1m8dzm0c6u"
+      <a data-url="https://liwq87112.github.io/2019/ck5hutgl60003i71mx8zod9di/" data-id="ck5hutgl60003i71mx8zod9di"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
@@ -270,7 +257,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2018/ck5humpgu0003gl1mi2eh8mhj/"
+  <a class="article-title" href="/2018/ck5hutgl50002i71m5fdxjzey/"
     >深圳市美美天成科技有限公司</a
   >
 </h2>
@@ -281,7 +268,7 @@
 
     
     <div class="article-meta">
-      <a href="/2018/ck5humpgu0003gl1mi2eh8mhj/" class="article-date">
+      <a href="/2018/ck5hutgl50002i71m5fdxjzey/" class="article-date">
   <time datetime="2018-04-05T01:30:00.000Z" itemprop="datePublished">2018-04-05</time>
 </a>
       
@@ -301,14 +288,14 @@
 <h2 id="项目名称-美美天成商家端"><a href="#项目名称-美美天成商家端" class="headerlink" title="项目名称:美美天成商家端"></a>项目名称:美美天成商家端</h2><p>1、项目整体用MVC和MVP框架搭建<br>2、dsBridge 原生和js交互<br>3、后台语音播放支持全系统,语言合成<br>4、图文混排,富文本编辑<br>5、自定义相机 OCR 拍照<br>6、纯demo编写,适配全机型及文字,图片大小</p>
 <p>项目链接: <a href="https://itunes.apple.com/cn/app/mei-mei-tian-cheng/id1385305995?mt=8" target="_blank" rel="noopener">AppStore</a><br>
       
-      <a class="article-more-link" href="/2018/ck5humpgu0003gl1mi2eh8mhj/">阅读更多...</a>
+      <a class="article-more-link" href="/2018/ck5hutgl50002i71m5fdxjzey/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2018/ck5humpgu0003gl1mi2eh8mhj/" data-id="ck5humpgu0003gl1mi2eh8mhj"
+      <a data-url="https://liwq87112.github.io/2018/ck5hutgl50002i71m5fdxjzey/" data-id="ck5hutgl50002i71m5fdxjzey"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公司/">公司</a></li></ul>
@@ -333,7 +320,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2018/ck5humph6000ggl1mzckqxw47/"
+  <a class="article-title" href="/2018/ck5hutgof000pi71m6q0csgj6/"
     >iOS 短视频录制.可以自定义</a
   >
 </h2>
@@ -344,7 +331,7 @@
 
     
     <div class="article-meta">
-      <a href="/2018/ck5humph6000ggl1mzckqxw47/" class="article-date">
+      <a href="/2018/ck5hutgof000pi71m6q0csgj6/" class="article-date">
   <time datetime="2018-02-01T02:12:45.000Z" itemprop="datePublished">2018-02-01</time>
 </a>
       
@@ -368,14 +355,14 @@
 <li>因此：<br>我们决定自己做，而且网上有很多借鉴</li>
 </ul>
       
-      <a class="article-more-link" href="/2018/ck5humph6000ggl1mzckqxw47/">阅读更多...</a>
+      <a class="article-more-link" href="/2018/ck5hutgof000pi71m6q0csgj6/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2018/ck5humph6000ggl1mzckqxw47/" data-id="ck5humph6000ggl1mzckqxw47"
+      <a data-url="https://liwq87112.github.io/2018/ck5hutgof000pi71m6q0csgj6/" data-id="ck5hutgof000pi71m6q0csgj6"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公司/">公司</a></li></ul>
@@ -400,7 +387,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2017/ck5humph0000agl1mrax7qtrm/"
+  <a class="article-title" href="/2017/ck5hutglc0007i71mr1nv7lsq/"
     >Runtime简单使用</a
   >
 </h2>
@@ -411,7 +398,7 @@
 
     
     <div class="article-meta">
-      <a href="/2017/ck5humph0000agl1mrax7qtrm/" class="article-date">
+      <a href="/2017/ck5hutglc0007i71mr1nv7lsq/" class="article-date">
   <time datetime="2017-11-27T08:39:51.000Z" itemprop="datePublished">2017-11-27</time>
 </a>
       
@@ -437,14 +424,14 @@
 <li>在编译阶段，C语言调用未实现的函数就会报错。</li>
 </ul>
       
-      <a class="article-more-link" href="/2017/ck5humph0000agl1mrax7qtrm/">阅读更多...</a>
+      <a class="article-more-link" href="/2017/ck5hutglc0007i71mr1nv7lsq/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2017/ck5humph0000agl1mrax7qtrm/" data-id="ck5humph0000agl1mrax7qtrm"
+      <a data-url="https://liwq87112.github.io/2017/ck5hutglc0007i71mr1nv7lsq/" data-id="ck5hutglc0007i71mr1nv7lsq"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
@@ -469,7 +456,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2017/ck5humpgy0008gl1m9d1gmmtw/"
+  <a class="article-title" href="/2017/ck5hutgn7000ni71mf8san0um/"
     >iOS 选择框，自定义选择</a
   >
 </h2>
@@ -480,7 +467,7 @@
 
     
     <div class="article-meta">
-      <a href="/2017/ck5humpgy0008gl1m9d1gmmtw/" class="article-date">
+      <a href="/2017/ck5hutgn7000ni71mf8san0um/" class="article-date">
   <time datetime="2017-10-24T07:11:41.000Z" itemprop="datePublished">2017-10-24</time>
 </a>
       
@@ -498,14 +485,14 @@
       
       <h1 id="先上图"><a href="#先上图" class="headerlink" title="先上图"></a>先上图</h1><h2 id="附上地址-https-github-com-liwq87112-WQAlertView"><a href="#附上地址-https-github-com-liwq87112-WQAlertView" class="headerlink" title="附上地址  https://github.com/liwq87112/WQAlertView"></a>附上地址  <a href="https://github.com/liwq87112/WQAlertView" target="_blank" rel="noopener">https://github.com/liwq87112/WQAlertView</a></h2>
       
-      <a class="article-more-link" href="/2017/ck5humpgy0008gl1m9d1gmmtw/">阅读更多...</a>
+      <a class="article-more-link" href="/2017/ck5hutgn7000ni71mf8san0um/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2017/ck5humpgy0008gl1m9d1gmmtw/" data-id="ck5humpgy0008gl1m9d1gmmtw"
+      <a data-url="https://liwq87112.github.io/2017/ck5hutgn7000ni71mf8san0um/" data-id="ck5hutgn7000ni71mf8san0um"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -530,7 +517,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2017/ck5humpgw0005gl1m1h519zis/"
+  <a class="article-title" href="/2017/ck5hutglb0006i71mpajrqhs1/"
     >深圳前海小树时代互联网金融服务有限公司</a
   >
 </h2>
@@ -541,7 +528,7 @@
 
     
     <div class="article-meta">
-      <a href="/2017/ck5humpgw0005gl1m1h519zis/" class="article-date">
+      <a href="/2017/ck5hutglb0006i71mpajrqhs1/" class="article-date">
   <time datetime="2017-06-01T02:23:45.000Z" itemprop="datePublished">2017-06-01</time>
 </a>
       
@@ -560,14 +547,14 @@
       <p>小树时代竭诚为您提供年轻人贷款、创业贷款 、小额贷款、网上贷款等服务,另外小树时代还提供贷款申请、条件、流程、政策等资讯.百万用户平台</p>
 <h2 id="项目名称-小树时代理财、小树时代"><a href="#项目名称-小树时代理财、小树时代" class="headerlink" title="项目名称:小树时代理财、小树时代"></a>项目名称:小树时代理财、小树时代</h2>
       
-      <a class="article-more-link" href="/2017/ck5humpgw0005gl1m1h519zis/">阅读更多...</a>
+      <a class="article-more-link" href="/2017/ck5hutglb0006i71mpajrqhs1/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2017/ck5humpgw0005gl1m1h519zis/" data-id="ck5humpgw0005gl1m1h519zis"
+      <a data-url="https://liwq87112.github.io/2017/ck5hutglb0006i71mpajrqhs1/" data-id="ck5hutglb0006i71mpajrqhs1"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公司/">公司</a></li></ul>
@@ -592,7 +579,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2015/ck5humpgj0000gl1m779o9dru/"
+  <a class="article-title" href="/2015/ck5hutgla0005i71mlc02y9zz/"
     >小矮人网络科技有限公司</a
   >
 </h2>
@@ -603,7 +590,7 @@
 
     
     <div class="article-meta">
-      <a href="/2015/ck5humpgj0000gl1m779o9dru/" class="article-date">
+      <a href="/2015/ck5hutgla0005i71mlc02y9zz/" class="article-date">
   <time datetime="2015-05-02T08:30:00.000Z" itemprop="datePublished">2015-05-02</time>
 </a>
       
@@ -622,14 +609,14 @@
       <p>是一个专注于制造业互联网招聘平台,结合移动互联网的优势来优化传统的招聘模式的不足,热聘网垂直的特性更加满足了制造业的企业和求职者的真实需求</p>
 <h2 id="项目名称-热聘网"><a href="#项目名称-热聘网" class="headerlink" title="项目名称:热聘网"></a>项目名称:热聘网</h2><p>1、项目整体用MVC和Xib框架搭建<br>2、环信聊天即时通讯<br>3、地区5级封装,精确到乡镇<br>4、分享,支付,百度地图.高德地图,LBS,图片大头针的封装<br>5、CollectionView 封装行业多选</p>
       
-      <a class="article-more-link" href="/2015/ck5humpgj0000gl1m779o9dru/">阅读更多...</a>
+      <a class="article-more-link" href="/2015/ck5hutgla0005i71mlc02y9zz/">阅读更多...</a>
       
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2015/ck5humpgj0000gl1m779o9dru/" data-id="ck5humpgj0000gl1m779o9dru"
+      <a data-url="https://liwq87112.github.io/2015/ck5hutgla0005i71mlc02y9zz/" data-id="ck5hutgla0005i71mlc02y9zz"
         class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公司/">公司</a></li></ul>
@@ -691,7 +678,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liwq87112.github.io/2015/about/" data-id="ck5humph2000dgl1m9t3vhpee"
+      <a data-url="https://liwq87112.github.io/2015/about/" data-id="ck5hutgl30001i71mo6tavtxm"
         class="article-share-link">分享</a>
       
     </footer>

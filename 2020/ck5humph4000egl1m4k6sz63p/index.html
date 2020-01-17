@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Tag: iOS |  李文强的博客
+    iOS 查看打包后的证书 |  李文强的博客
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -30,154 +30,104 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article class="articles">
-    
-    <h1 class="page-type-title">#&nbspiOS</h1>
+  <article id="post-zhengshu" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
 
+  <div class="article-inner">
     
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/ck5humph4000egl1m4k6sz63p/" class="archive-article-date">
-  <time datetime="2020-01-16T13:30:15.000Z" itemprop="datePublished">01/16</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/ck5humph4000egl1m4k6sz63p/"
-    >iOS 查看打包后的证书</a
-  >
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  iOS 查看打包后的证书
+</h1>
   
 
     </header>
     
+
     
+    <div class="article-meta">
+      <a href="/2020/ck5humph4000egl1m4k6sz63p/" class="article-date">
+  <time datetime="2020-01-16T13:30:15.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>关于打包之后无法安装，或者安装之后闪退的情况。只有可能是两种情况，一种是证书错误，另一种就是当前的设备并不在开发者对应的账号里面。</p>
+<p>我们来看一下怎么检测当前的设备是否在开发者的证书里呢，如果你有开发者账号，当然登录app即可获得。但是没有开发者账号的情况我们该怎么办呢？</p>
+<p>我们以下面的ipa包为例，必须是hoc或者dev的包</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2835602-3a2813fd67b8793c..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png" title="1521431648582925.png"></p>
+<p>ipa其实就是一个压缩文件，我们可以对齐解压。得到一个payload文件夹。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2835602-81e68bad731ce369..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png" title="1521431663954123.png"></p>
+<p>解压后，点击进入文件夹，然后显示包内容，可以看到里面的文件列表</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2835602-13d3c9ab57d6dac6..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png" title="1521431684847898.png"></p>
+<p>我们找到对应的证书embedded.mobileprovision 这个就是你的ipa包里面使用的签名证书。</p>
+<p>然后mac上开启终端。并cd到证书所在的路径</p>
+<p>并且在终端输入</p>
+<p><code>//查看dev.hoc包中的已经添加的设备号</code></p>
+<p><code>security cms -D -i embedded.mobileprovision &gt; entitlements_full.plist</code></p>
+<p>在证书对应的路径会生成一个文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2835602-daf931909bf7db64..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png" title="1521431729756280.png"></p>
+<p>用xcode打开这个文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2835602-675e4a3ed0f06891..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png" title="1521431748249408.png"></p>
+<p>这里面就是你的证书里面对应的所有的设备号。</p>
+
+      
+      <!-- 打赏 -->
+      
+        <div id="reward-btn">
+          打赏
+        </div>
+        
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liwq87112.github.io/2020/ck5humph4000egl1m4k6sz63p/" data-id="ck5humph4000egl1m4k6sz63p"
+        class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
 
-    
+    </footer>
+
   </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/jianli/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">李文强的简历</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+
+  
+  
+  
+
 </article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2019" class="archive-year">2019</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/ck5humpgq0001gl1m8dzm0c6u/" class="archive-article-date">
-  <time datetime="2019-06-09T09:08:48.000Z" itemprop="datePublished">06/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2019/ck5humpgq0001gl1m8dzm0c6u/"
-    >iOS 悬浮按钮,支持自定义</a
-  >
-</h2>
-  
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2017" class="archive-year">2017</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/ck5humph0000agl1mrax7qtrm/" class="archive-article-date">
-  <time datetime="2017-11-27T08:39:51.000Z" itemprop="datePublished">11/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2017/ck5humph0000agl1mrax7qtrm/"
-    >Runtime简单使用</a
-  >
-</h2>
-  
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/ck5humpgy0008gl1m9d1gmmtw/" class="archive-article-date">
-  <time datetime="2017-10-24T07:11:41.000Z" itemprop="datePublished">10/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2017/ck5humpgy0008gl1m9d1gmmtw/"
-    >iOS 选择框，自定义选择</a
-  >
-</h2>
-  
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-    
-  </div>
-</article>
-      
-      
-    </div>
-  </div>
-  
-  
-
-  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -214,8 +164,8 @@
       </div>
     </main>
     
-      <aside class="sidebar">
-        
+    <aside class="sidebar">
+      
         <button class="navbar-toggle"></button>
 <nav class="navbar">
   
@@ -295,6 +245,21 @@
   <script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
 
 
 <script>
